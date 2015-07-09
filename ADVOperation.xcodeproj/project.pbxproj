@@ -41,6 +41,10 @@
 		AA8215C61B2F422C00A04622 /* URLSessionTaskOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8215A81B2F422C00A04622 /* URLSessionTaskOperation.swift */; };
 		AA8215C71B2F422C00A04622 /* UserNotificationCondition.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8215A91B2F422C00A04622 /* UserNotificationCondition.swift */; };
 		AA9A92321B301FE8003CF5D2 /* URLSessionTaskOperationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9A92311B301FE8003CF5D2 /* URLSessionTaskOperationTests.swift */; };
+		B056D8A21B4E2FA5008DBDB8 /* AlertOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B056D89A1B4E2F68008DBDB8 /* AlertOperation.swift */; };
+		B056D8A31B4E2FA5008DBDB8 /* MoreInformationOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B056D89B1B4E2F68008DBDB8 /* MoreInformationOperation.swift */; };
+		B056D8A41B4E2FA5008DBDB8 /* NetworkObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = B056D89C1B4E2F68008DBDB8 /* NetworkObserver.swift */; };
+		B056D8A51B4E2FA5008DBDB8 /* BackgroundObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = B056D89D1B4E2F68008DBDB8 /* BackgroundObserver.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -90,6 +94,10 @@
 		AA8215A81B2F422C00A04622 /* URLSessionTaskOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLSessionTaskOperation.swift; sourceTree = "<group>"; };
 		AA8215A91B2F422C00A04622 /* UserNotificationCondition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserNotificationCondition.swift; sourceTree = "<group>"; };
 		AA9A92311B301FE8003CF5D2 /* URLSessionTaskOperationTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLSessionTaskOperationTests.swift; sourceTree = "<group>"; };
+		B056D89A1B4E2F68008DBDB8 /* AlertOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertOperation.swift; sourceTree = "<group>"; };
+		B056D89B1B4E2F68008DBDB8 /* MoreInformationOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoreInformationOperation.swift; sourceTree = "<group>"; };
+		B056D89C1B4E2F68008DBDB8 /* NetworkObserver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkObserver.swift; sourceTree = "<group>"; };
+		B056D89D1B4E2F68008DBDB8 /* BackgroundObserver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackgroundObserver.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,6 +150,7 @@
 			isa = PBXGroup;
 			children = (
 				AA8215C81B2F425F00A04622 /* Operation Queue */,
+				B056D8991B4E2F45008DBDB8 /* App Operations */,
 				AA9A922D1B2F431F003CF5D2 /* Operations */,
 				AA9A922E1B2F434A003CF5D2 /* Observers */,
 				AA9A92301B2F438D003CF5D2 /* Conditions */,
@@ -233,6 +242,17 @@
 			name = Conditions;
 			sourceTree = "<group>";
 		};
+		B056D8991B4E2F45008DBDB8 /* App Operations */ = {
+			isa = PBXGroup;
+			children = (
+				B056D89A1B4E2F68008DBDB8 /* AlertOperation.swift */,
+				B056D89B1B4E2F68008DBDB8 /* MoreInformationOperation.swift */,
+				B056D89C1B4E2F68008DBDB8 /* NetworkObserver.swift */,
+				B056D89D1B4E2F68008DBDB8 /* BackgroundObserver.swift */,
+			);
+			name = "App Operations";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -288,6 +308,7 @@
 		AA8215541B2F23FA00A04622 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "Advanced Operation";
 				TargetAttributes = {
@@ -363,8 +384,10 @@
 				AA8215B91B2F422C00A04622 /* NoCancelledDependencies.swift in Sources */,
 				AA8215C01B2F422C00A04622 /* PhotosCondition.swift in Sources */,
 				AA8215B51B2F422C00A04622 /* LocationCondition.swift in Sources */,
+				B056D8A31B4E2FA5008DBDB8 /* MoreInformationOperation.swift in Sources */,
 				AA8215C21B2F422C00A04622 /* RemoteNotificationCondition.swift in Sources */,
 				AA8215AA1B2F422C00A04622 /* GroupOperation.swift in Sources */,
+				B056D8A41B4E2FA5008DBDB8 /* NetworkObserver.swift in Sources */,
 				AA8215B31B2F422C00A04622 /* ExclusivityController.swift in Sources */,
 				AA8215B71B2F422C00A04622 /* MutuallyExclusive.swift in Sources */,
 				AA8215B01B2F422C00A04622 /* CloudCondition.swift in Sources */,
@@ -372,12 +395,14 @@
 				AA8215BF1B2F422C00A04622 /* PassbookCondition.swift in Sources */,
 				AA9A92321B301FE8003CF5D2 /* URLSessionTaskOperationTests.swift in Sources */,
 				AA8215B41B2F422C00A04622 /* HealthCondition.swift in Sources */,
+				B056D8A21B4E2FA5008DBDB8 /* AlertOperation.swift in Sources */,
 				AA8215AF1B2F422C00A04622 /* CKContainer+Operations.swift in Sources */,
 				AA8215AD1B2F422C00A04622 /* BlockObserver.swift in Sources */,
 				AA8215C31B2F422C00A04622 /* SilentCondition.swift in Sources */,
 				AA8215C51B2F422C00A04622 /* UIUserNotifications+Operations.swift in Sources */,
 				AA8215BC1B2F422C00A04622 /* OperationCondition.swift in Sources */,
 				AA8215BE1B2F422C00A04622 /* OperationObserver.swift in Sources */,
+				B056D8A51B4E2FA5008DBDB8 /* BackgroundObserver.swift in Sources */,
 				AA8215C11B2F422C00A04622 /* ReachabilityCondition.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -485,6 +510,7 @@
 		AA8215721B2F23FA00A04622 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -495,12 +521,14 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.advoperation.ADVOperation;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		AA8215731B2F23FA00A04622 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
