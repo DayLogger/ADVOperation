@@ -7,6 +7,7 @@
 //
 
 import XCTest
+@testable import ADVOperation
 
 class URLSessionTaskOperationTests: XCTestCase {
     

@@ -8,43 +8,42 @@
 
 /* Begin PBXBuildFile section */
 		AA8215681B2F23FA00A04622 /* ADVOperation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA82155D1B2F23FA00A04622 /* ADVOperation.framework */; };
-		AA8215851B2F260200A04622 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AA8215831B2F260200A04622 /* Info.plist */; };
-		AA8215891B2F417E00A04622 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AA8215881B2F417E00A04622 /* Info.plist */; };
-		AA8215AA1B2F422C00A04622 /* GroupOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA82158C1B2F422C00A04622 /* GroupOperation.swift */; };
-		AA8215AB1B2F422C00A04622 /* BlockOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA82158D1B2F422C00A04622 /* BlockOperation.swift */; };
-		AA8215AC1B2F422C00A04622 /* OperationQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA82158E1B2F422C00A04622 /* OperationQueue.swift */; };
-		AA8215AD1B2F422C00A04622 /* BlockObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA82158F1B2F422C00A04622 /* BlockObserver.swift */; };
-		AA8215AE1B2F422C00A04622 /* CalendarCondition.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8215901B2F422C00A04622 /* CalendarCondition.swift */; };
-		AA8215AF1B2F422C00A04622 /* CKContainer+Operations.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8215911B2F422C00A04622 /* CKContainer+Operations.swift */; };
-		AA8215B01B2F422C00A04622 /* CloudCondition.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8215921B2F422C00A04622 /* CloudCondition.swift */; };
-		AA8215B11B2F422C00A04622 /* DelayOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8215931B2F422C00A04622 /* DelayOperation.swift */; };
-		AA8215B21B2F422C00A04622 /* Dictionary+Operations.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8215941B2F422C00A04622 /* Dictionary+Operations.swift */; };
-		AA8215B31B2F422C00A04622 /* ExclusivityController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8215951B2F422C00A04622 /* ExclusivityController.swift */; };
-		AA8215B41B2F422C00A04622 /* HealthCondition.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8215961B2F422C00A04622 /* HealthCondition.swift */; };
-		AA8215B51B2F422C00A04622 /* LocationCondition.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8215971B2F422C00A04622 /* LocationCondition.swift */; };
-		AA8215B61B2F422C00A04622 /* LocationOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8215981B2F422C00A04622 /* LocationOperation.swift */; };
-		AA8215B71B2F422C00A04622 /* MutuallyExclusive.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8215991B2F422C00A04622 /* MutuallyExclusive.swift */; };
-		AA8215B81B2F422C00A04622 /* NegatedCondition.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA82159A1B2F422C00A04622 /* NegatedCondition.swift */; };
-		AA8215B91B2F422C00A04622 /* NoCancelledDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA82159B1B2F422C00A04622 /* NoCancelledDependencies.swift */; };
-		AA8215BA1B2F422C00A04622 /* NSOperation+Operations.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA82159C1B2F422C00A04622 /* NSOperation+Operations.swift */; };
-		AA8215BB1B2F422C00A04622 /* Operation.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA82159D1B2F422C00A04622 /* Operation.swift */; };
-		AA8215BC1B2F422C00A04622 /* OperationCondition.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA82159E1B2F422C00A04622 /* OperationCondition.swift */; };
-		AA8215BD1B2F422C00A04622 /* OperationErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA82159F1B2F422C00A04622 /* OperationErrors.swift */; };
-		AA8215BE1B2F422C00A04622 /* OperationObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8215A01B2F422C00A04622 /* OperationObserver.swift */; };
-		AA8215BF1B2F422C00A04622 /* PassbookCondition.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8215A11B2F422C00A04622 /* PassbookCondition.swift */; };
-		AA8215C01B2F422C00A04622 /* PhotosCondition.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8215A21B2F422C00A04622 /* PhotosCondition.swift */; };
-		AA8215C11B2F422C00A04622 /* ReachabilityCondition.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8215A31B2F422C00A04622 /* ReachabilityCondition.swift */; };
-		AA8215C21B2F422C00A04622 /* RemoteNotificationCondition.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8215A41B2F422C00A04622 /* RemoteNotificationCondition.swift */; };
-		AA8215C31B2F422C00A04622 /* SilentCondition.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8215A51B2F422C00A04622 /* SilentCondition.swift */; };
-		AA8215C41B2F422C00A04622 /* TimeoutObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8215A61B2F422C00A04622 /* TimeoutObserver.swift */; };
-		AA8215C51B2F422C00A04622 /* UIUserNotifications+Operations.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8215A71B2F422C00A04622 /* UIUserNotifications+Operations.swift */; };
-		AA8215C61B2F422C00A04622 /* URLSessionTaskOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8215A81B2F422C00A04622 /* URLSessionTaskOperation.swift */; };
-		AA8215C71B2F422C00A04622 /* UserNotificationCondition.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8215A91B2F422C00A04622 /* UserNotificationCondition.swift */; };
 		AA9A92321B301FE8003CF5D2 /* URLSessionTaskOperationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9A92311B301FE8003CF5D2 /* URLSessionTaskOperationTests.swift */; };
-		B056D8A21B4E2FA5008DBDB8 /* AlertOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B056D89A1B4E2F68008DBDB8 /* AlertOperation.swift */; };
-		B056D8A31B4E2FA5008DBDB8 /* MoreInformationOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B056D89B1B4E2F68008DBDB8 /* MoreInformationOperation.swift */; };
-		B056D8A41B4E2FA5008DBDB8 /* NetworkObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = B056D89C1B4E2F68008DBDB8 /* NetworkObserver.swift */; };
-		B056D8A51B4E2FA5008DBDB8 /* BackgroundObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = B056D89D1B4E2F68008DBDB8 /* BackgroundObserver.swift */; };
+		B0F55EED1B4ED17400F020AE /* ExclusivityController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8215951B2F422C00A04622 /* ExclusivityController.swift */; };
+		B0F55EEE1B4ED17400F020AE /* OperationQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA82158E1B2F422C00A04622 /* OperationQueue.swift */; };
+		B0F55EEF1B4ED17900F020AE /* AlertOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B056D89A1B4E2F68008DBDB8 /* AlertOperation.swift */; };
+		B0F55EF01B4ED17900F020AE /* LoadCoreDataModelOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F55EEA1B4ED14E00F020AE /* LoadCoreDataModelOperation.swift */; };
+		B0F55EF11B4ED17900F020AE /* MoreInformationOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B056D89B1B4E2F68008DBDB8 /* MoreInformationOperation.swift */; };
+		B0F55EF21B4ED17900F020AE /* NetworkObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = B056D89C1B4E2F68008DBDB8 /* NetworkObserver.swift */; };
+		B0F55EF31B4ED17900F020AE /* BackgroundObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = B056D89D1B4E2F68008DBDB8 /* BackgroundObserver.swift */; };
+		B0F55EF41B4ED17F00F020AE /* Operation.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA82159D1B2F422C00A04622 /* Operation.swift */; };
+		B0F55EF51B4ED17F00F020AE /* BlockOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA82158D1B2F422C00A04622 /* BlockOperation.swift */; };
+		B0F55EF61B4ED17F00F020AE /* GroupOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA82158C1B2F422C00A04622 /* GroupOperation.swift */; };
+		B0F55EF71B4ED17F00F020AE /* URLSessionTaskOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8215A81B2F422C00A04622 /* URLSessionTaskOperation.swift */; };
+		B0F55EF81B4ED17F00F020AE /* LocationOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8215981B2F422C00A04622 /* LocationOperation.swift */; };
+		B0F55EF91B4ED17F00F020AE /* DelayOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8215931B2F422C00A04622 /* DelayOperation.swift */; };
+		B0F55EFA1B4ED18600F020AE /* OperationObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8215A01B2F422C00A04622 /* OperationObserver.swift */; };
+		B0F55EFB1B4ED18600F020AE /* BlockObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA82158F1B2F422C00A04622 /* BlockObserver.swift */; };
+		B0F55EFC1B4ED18600F020AE /* TimeoutObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8215A61B2F422C00A04622 /* TimeoutObserver.swift */; };
+		B0F55EFD1B4ED18D00F020AE /* CalendarCondition.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8215901B2F422C00A04622 /* CalendarCondition.swift */; };
+		B0F55EFE1B4ED18D00F020AE /* CloudCondition.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8215921B2F422C00A04622 /* CloudCondition.swift */; };
+		B0F55EFF1B4ED18D00F020AE /* HealthCondition.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8215961B2F422C00A04622 /* HealthCondition.swift */; };
+		B0F55F001B4ED18D00F020AE /* LocationCondition.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8215971B2F422C00A04622 /* LocationCondition.swift */; };
+		B0F55F011B4ED18D00F020AE /* MutuallyExclusive.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8215991B2F422C00A04622 /* MutuallyExclusive.swift */; };
+		B0F55F021B4ED18D00F020AE /* NegatedCondition.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA82159A1B2F422C00A04622 /* NegatedCondition.swift */; };
+		B0F55F031B4ED18D00F020AE /* NoCancelledDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA82159B1B2F422C00A04622 /* NoCancelledDependencies.swift */; };
+		B0F55F041B4ED18D00F020AE /* OperationCondition.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA82159E1B2F422C00A04622 /* OperationCondition.swift */; };
+		B0F55F051B4ED18D00F020AE /* OperationErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA82159F1B2F422C00A04622 /* OperationErrors.swift */; };
+		B0F55F061B4ED18D00F020AE /* PassbookCondition.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8215A11B2F422C00A04622 /* PassbookCondition.swift */; };
+		B0F55F071B4ED18D00F020AE /* PhotosCondition.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8215A21B2F422C00A04622 /* PhotosCondition.swift */; };
+		B0F55F081B4ED18D00F020AE /* ReachabilityCondition.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8215A31B2F422C00A04622 /* ReachabilityCondition.swift */; };
+		B0F55F091B4ED18D00F020AE /* RemoteNotificationCondition.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8215A41B2F422C00A04622 /* RemoteNotificationCondition.swift */; };
+		B0F55F0A1B4ED18D00F020AE /* SilentCondition.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8215A51B2F422C00A04622 /* SilentCondition.swift */; };
+		B0F55F0B1B4ED18D00F020AE /* UserNotificationCondition.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8215A91B2F422C00A04622 /* UserNotificationCondition.swift */; };
+		B0F55F0C1B4ED19600F020AE /* Dictionary+Operations.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8215941B2F422C00A04622 /* Dictionary+Operations.swift */; };
+		B0F55F0D1B4ED19600F020AE /* NSOperation+Operations.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA82159C1B2F422C00A04622 /* NSOperation+Operations.swift */; };
+		B0F55F0E1B4ED19600F020AE /* CKContainer+Operations.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8215911B2F422C00A04622 /* CKContainer+Operations.swift */; };
+		B0F55F0F1B4ED19600F020AE /* UIUserNotifications+Operations.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8215A71B2F422C00A04622 /* UIUserNotifications+Operations.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -98,6 +97,7 @@
 		B056D89B1B4E2F68008DBDB8 /* MoreInformationOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoreInformationOperation.swift; sourceTree = "<group>"; };
 		B056D89C1B4E2F68008DBDB8 /* NetworkObserver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkObserver.swift; sourceTree = "<group>"; };
 		B056D89D1B4E2F68008DBDB8 /* BackgroundObserver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackgroundObserver.swift; sourceTree = "<group>"; };
+		B0F55EEA1B4ED14E00F020AE /* LoadCoreDataModelOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadCoreDataModelOperation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -246,6 +246,7 @@
 			isa = PBXGroup;
 			children = (
 				B056D89A1B4E2F68008DBDB8 /* AlertOperation.swift */,
+				B0F55EEA1B4ED14E00F020AE /* LoadCoreDataModelOperation.swift */,
 				B056D89B1B4E2F68008DBDB8 /* MoreInformationOperation.swift */,
 				B056D89C1B4E2F68008DBDB8 /* NetworkObserver.swift */,
 				B056D89D1B4E2F68008DBDB8 /* BackgroundObserver.swift */,
@@ -350,8 +351,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AA8215891B2F417E00A04622 /* Info.plist in Resources */,
-				AA8215851B2F260200A04622 /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -362,6 +361,41 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B0F55EF51B4ED17F00F020AE /* BlockOperation.swift in Sources */,
+				B0F55F061B4ED18D00F020AE /* PassbookCondition.swift in Sources */,
+				B0F55F011B4ED18D00F020AE /* MutuallyExclusive.swift in Sources */,
+				B0F55EF01B4ED17900F020AE /* LoadCoreDataModelOperation.swift in Sources */,
+				B0F55EFD1B4ED18D00F020AE /* CalendarCondition.swift in Sources */,
+				B0F55F031B4ED18D00F020AE /* NoCancelledDependencies.swift in Sources */,
+				B0F55F0B1B4ED18D00F020AE /* UserNotificationCondition.swift in Sources */,
+				B0F55EED1B4ED17400F020AE /* ExclusivityController.swift in Sources */,
+				B0F55EF71B4ED17F00F020AE /* URLSessionTaskOperation.swift in Sources */,
+				B0F55F021B4ED18D00F020AE /* NegatedCondition.swift in Sources */,
+				B0F55F091B4ED18D00F020AE /* RemoteNotificationCondition.swift in Sources */,
+				B0F55F051B4ED18D00F020AE /* OperationErrors.swift in Sources */,
+				B0F55EF81B4ED17F00F020AE /* LocationOperation.swift in Sources */,
+				B0F55F001B4ED18D00F020AE /* LocationCondition.swift in Sources */,
+				B0F55EEE1B4ED17400F020AE /* OperationQueue.swift in Sources */,
+				B0F55F041B4ED18D00F020AE /* OperationCondition.swift in Sources */,
+				B0F55EF91B4ED17F00F020AE /* DelayOperation.swift in Sources */,
+				B0F55F0F1B4ED19600F020AE /* UIUserNotifications+Operations.swift in Sources */,
+				B0F55EFF1B4ED18D00F020AE /* HealthCondition.swift in Sources */,
+				B0F55EF41B4ED17F00F020AE /* Operation.swift in Sources */,
+				B0F55EFE1B4ED18D00F020AE /* CloudCondition.swift in Sources */,
+				B0F55EF11B4ED17900F020AE /* MoreInformationOperation.swift in Sources */,
+				B0F55EFA1B4ED18600F020AE /* OperationObserver.swift in Sources */,
+				B0F55EF21B4ED17900F020AE /* NetworkObserver.swift in Sources */,
+				B0F55EF31B4ED17900F020AE /* BackgroundObserver.swift in Sources */,
+				B0F55F081B4ED18D00F020AE /* ReachabilityCondition.swift in Sources */,
+				B0F55EEF1B4ED17900F020AE /* AlertOperation.swift in Sources */,
+				B0F55EF61B4ED17F00F020AE /* GroupOperation.swift in Sources */,
+				B0F55F0C1B4ED19600F020AE /* Dictionary+Operations.swift in Sources */,
+				B0F55F0A1B4ED18D00F020AE /* SilentCondition.swift in Sources */,
+				B0F55F071B4ED18D00F020AE /* PhotosCondition.swift in Sources */,
+				B0F55F0D1B4ED19600F020AE /* NSOperation+Operations.swift in Sources */,
+				B0F55F0E1B4ED19600F020AE /* CKContainer+Operations.swift in Sources */,
+				B0F55EFB1B4ED18600F020AE /* BlockObserver.swift in Sources */,
+				B0F55EFC1B4ED18600F020AE /* TimeoutObserver.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -369,41 +403,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AA8215BA1B2F422C00A04622 /* NSOperation+Operations.swift in Sources */,
-				AA8215B81B2F422C00A04622 /* NegatedCondition.swift in Sources */,
-				AA8215AB1B2F422C00A04622 /* BlockOperation.swift in Sources */,
-				AA8215AE1B2F422C00A04622 /* CalendarCondition.swift in Sources */,
-				AA8215BD1B2F422C00A04622 /* OperationErrors.swift in Sources */,
-				AA8215B11B2F422C00A04622 /* DelayOperation.swift in Sources */,
-				AA8215C71B2F422C00A04622 /* UserNotificationCondition.swift in Sources */,
-				AA8215B21B2F422C00A04622 /* Dictionary+Operations.swift in Sources */,
-				AA8215C61B2F422C00A04622 /* URLSessionTaskOperation.swift in Sources */,
-				AA8215B61B2F422C00A04622 /* LocationOperation.swift in Sources */,
-				AA8215AC1B2F422C00A04622 /* OperationQueue.swift in Sources */,
-				AA8215BB1B2F422C00A04622 /* Operation.swift in Sources */,
-				AA8215B91B2F422C00A04622 /* NoCancelledDependencies.swift in Sources */,
-				AA8215C01B2F422C00A04622 /* PhotosCondition.swift in Sources */,
-				AA8215B51B2F422C00A04622 /* LocationCondition.swift in Sources */,
-				B056D8A31B4E2FA5008DBDB8 /* MoreInformationOperation.swift in Sources */,
-				AA8215C21B2F422C00A04622 /* RemoteNotificationCondition.swift in Sources */,
-				AA8215AA1B2F422C00A04622 /* GroupOperation.swift in Sources */,
-				B056D8A41B4E2FA5008DBDB8 /* NetworkObserver.swift in Sources */,
-				AA8215B31B2F422C00A04622 /* ExclusivityController.swift in Sources */,
-				AA8215B71B2F422C00A04622 /* MutuallyExclusive.swift in Sources */,
-				AA8215B01B2F422C00A04622 /* CloudCondition.swift in Sources */,
-				AA8215C41B2F422C00A04622 /* TimeoutObserver.swift in Sources */,
-				AA8215BF1B2F422C00A04622 /* PassbookCondition.swift in Sources */,
 				AA9A92321B301FE8003CF5D2 /* URLSessionTaskOperationTests.swift in Sources */,
-				AA8215B41B2F422C00A04622 /* HealthCondition.swift in Sources */,
-				B056D8A21B4E2FA5008DBDB8 /* AlertOperation.swift in Sources */,
-				AA8215AF1B2F422C00A04622 /* CKContainer+Operations.swift in Sources */,
-				AA8215AD1B2F422C00A04622 /* BlockObserver.swift in Sources */,
-				AA8215C31B2F422C00A04622 /* SilentCondition.swift in Sources */,
-				AA8215C51B2F422C00A04622 /* UIUserNotifications+Operations.swift in Sources */,
-				AA8215BC1B2F422C00A04622 /* OperationCondition.swift in Sources */,
-				AA8215BE1B2F422C00A04622 /* OperationObserver.swift in Sources */,
-				B056D8A51B4E2FA5008DBDB8 /* BackgroundObserver.swift in Sources */,
-				AA8215C11B2F422C00A04622 /* ReachabilityCondition.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
