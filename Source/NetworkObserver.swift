@@ -104,7 +104,7 @@ class Timer {
         let when = dispatch_time(DISPATCH_TIME_NOW, Int64(interval * Double(NSEC_PER_SEC)))
         
         dispatch_after(when, dispatch_get_main_queue()) { [weak self] in
-            if self?.isCancelled == true {
+            if self?.isCancelled == false {
                 handler()
             }
         }
