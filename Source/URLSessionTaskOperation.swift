@@ -24,7 +24,7 @@ private var URLSessionTaksOperationKVOContext = 0
 public class URLSessionTaskOperation: Operation {
     let task: NSURLSessionTask
     
-    init(task: NSURLSessionTask) {
+    public init(task: NSURLSessionTask) {
         assert(task.state == .Suspended, "Tasks must be suspended.")
         self.task = task
         super.init()
