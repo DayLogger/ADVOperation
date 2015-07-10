@@ -15,7 +15,7 @@ import UIKit
 public struct NetworkObserver: OperationObserver {
     // MARK: Initilization
 
-    init() { }
+    public init() { }
     
     public func operationDidStart(operation: Operation) {
         dispatch_async(dispatch_get_main_queue()) {
