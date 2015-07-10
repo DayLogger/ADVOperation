@@ -10,14 +10,14 @@ import Foundation
 import SafariServices
 
 /// An `Operation` to display an `NSURL` in an app-modal `SFSafariViewController`.
-class MoreInformationOperation: Operation {
+public class MoreInformationOperation: Operation {
     // MARK: Properties
 
     let URL: NSURL
     
     // MARK: Initialization
     
-    init(URL: NSURL) {
+    public init(URL: NSURL) {
         self.URL = URL
 
         super.init()
@@ -27,7 +27,7 @@ class MoreInformationOperation: Operation {
     
     // MARK: Overrides
  
-    override func execute() {
+    override public func execute() {
         dispatch_async(dispatch_get_main_queue()) {
             self.showSafariViewController()
         }
@@ -46,7 +46,7 @@ class MoreInformationOperation: Operation {
 }
 
 extension MoreInformationOperation: SFSafariViewControllerDelegate {
-    func safariViewControllerDidFinish(controller: SFSafariViewController) {
+    public func safariViewControllerDidFinish(controller: SFSafariViewController) {
         controller.dismissViewControllerAnimated(true) {
             self.finish()
         }

@@ -8,37 +8,37 @@ This file contains the code to create the Core Data stack.
 
 import CoreData
 
-struct CoreDataModelConfiguration {
+public struct CoreDataModelConfiguration {
     /// The folder in which the store will be created
-    var folder: NSURL = try! NSFileManager.defaultManager().URLForDirectory(.CachesDirectory, inDomain: .UserDomainMask, appropriateForURL: nil, create: true)
+    public var folder: NSURL = try! NSFileManager.defaultManager().URLForDirectory(.CachesDirectory, inDomain: .UserDomainMask, appropriateForURL: nil, create: true)
 
     /// The name of the store file
-    var modelName: String
+    public var modelName: String
 
     /// The bundle that contains the model to load
-    var modelBundle = NSBundle(forClass: LoadCoreDataModelOperation.self)
+    public var modelBundle = NSBundle(forClass: LoadCoreDataModelOperation.self)
 
     /// Whether an existing store should be destroyed before creating the new one
-    var shouldReset = false
+    public var shouldReset = false
 
     /// If creating a new store fails, indicate whether we're allowed to destroy it and try again
-    var shouldResetAfterFailure = true
+    public var shouldResetAfterFailure = true
 
     /// Any options to be passed when creating the store
-    var options = Dictionary<NSObject, AnyObject>()
+    public var options = Dictionary<NSObject, AnyObject>()
 
-    init(modelName: String) {
+    public init(modelName: String) {
         self.modelName = modelName
     }
 }
 
-class LoadCoreDataModelOperation: Operation {
+public class LoadCoreDataModelOperation: Operation {
     let loadHandler: NSManagedObjectContext -> Void
     let configuration: CoreDataModelConfiguration
 
     // MARK: Initialization
 
-    init(configuration: CoreDataModelConfiguration, loadHandler: NSManagedObjectContext -> Void) {
+    public init(configuration: CoreDataModelConfiguration, loadHandler: NSManagedObjectContext -> Void) {
         self.configuration = configuration
         self.loadHandler = loadHandler
 
@@ -48,7 +48,7 @@ class LoadCoreDataModelOperation: Operation {
         addCondition(MutuallyExclusive<LoadCoreDataModelOperation>())
     }
 
-    override func execute() {
+    override public func execute() {
         let storeURL = configuration.folder.URLByAppendingPathComponent(configuration.modelName)
 
         let model = NSManagedObjectModel.mergedModelFromBundles([configuration.modelBundle])!

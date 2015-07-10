@@ -21,17 +21,17 @@ import Foundation
     subsequent operations (still within the outer `GroupOperation`) that will all
     be executed before the rest of the operations in the initial chain of operations.
 */
-class GroupOperation: Operation {
+public class GroupOperation: Operation {
     private let internalQueue = OperationQueue()
     private let finishingOperation = NSBlockOperation(block: {})
 
     private var aggregatedErrors = [NSError]()
     
-    convenience init(operations: NSOperation...) {
+    convenience public init(operations: NSOperation...) {
         self.init(operations: operations)
     }
     
-    init(operations: [NSOperation]) {
+    public init(operations: [NSOperation]) {
         super.init()
         
         internalQueue.suspended = true
@@ -43,17 +43,17 @@ class GroupOperation: Operation {
         }
     }
     
-    override func cancel() {
+    override public func cancel() {
         internalQueue.cancelAllOperations()
         super.cancel()
     }
     
-    override func execute() {
+    override public func execute() {
         internalQueue.suspended = false
         internalQueue.addOperation(finishingOperation)
     }
     
-    func addOperation(operation: NSOperation) {
+    public func addOperation(operation: NSOperation) {
         internalQueue.addOperation(operation)
     }
     
@@ -62,11 +62,11 @@ class GroupOperation: Operation {
         Errors aggregated through this method will be included in the final array 
         of errors reported to observers and to the `finished(_:)` method.
     */
-    final func aggregateError(error: NSError) {
+    public final func aggregateError(error: NSError) {
         aggregatedErrors.append(error)
     }
     
-    func operationDidFinish(operation: NSOperation, withErrors errors: [NSError]) {
+    public func operationDidFinish(operation: NSOperation, withErrors errors: [NSError]) {
         // For use by subclassers.
     }
 }

@@ -14,7 +14,7 @@ import Foundation
     extended readiness requirements, as well as notify many interested parties 
     about interesting operation state changes
 */
-class Operation: NSOperation {
+public class Operation: NSOperation {
     
     // use the KVO mechanism to indicate that changes to "state" affect other properties as well
     class func keyPathsForValuesAffectingIsReady() -> Set<NSObject> {
@@ -103,7 +103,7 @@ class Operation: NSOperation {
     }
     
     // Here is where we extend our definition of "readiness".
-    override var ready: Bool {
+    override public var ready: Bool {
         switch state {
             case .Pending:
                 if super.ready {
@@ -120,7 +120,7 @@ class Operation: NSOperation {
         }
     }
     
-    var userInitiated: Bool {
+    public var userInitiated: Bool {
         get {
             return qualityOfService == .UserInitiated
         }
@@ -132,15 +132,15 @@ class Operation: NSOperation {
         }
     }
     
-    override var executing: Bool {
+    override public var executing: Bool {
         return state == .Executing
     }
     
-    override var finished: Bool {
+    override public var finished: Bool {
         return state == .Finished
     }
     
-    override var cancelled: Bool {
+    override public var cancelled: Bool {
         return state == .Cancelled
     }
     
@@ -165,7 +165,7 @@ class Operation: NSOperation {
     
     private(set) var conditions = [OperationCondition]()
 
-    func addCondition(condition: OperationCondition) {
+    public func addCondition(condition: OperationCondition) {
         assert(state < .EvaluatingConditions, "Cannot modify conditions after execution has begun.")
 
         conditions.append(condition)
@@ -173,13 +173,13 @@ class Operation: NSOperation {
     
     private(set) var observers = [OperationObserver]()
     
-    func addObserver(observer: OperationObserver) {
+    public func addObserver(observer: OperationObserver) {
         assert(state < .Executing, "Cannot modify observers after execution has begun.")
         
         observers.append(observer)
     }
     
-    override func addDependency(operation: NSOperation) {
+    override public func addDependency(operation: NSOperation) {
         assert(state <= .Executing, "Dependencies cannot be modified after execution has begun.")
 
         super.addDependency(operation)
@@ -187,7 +187,7 @@ class Operation: NSOperation {
     
     // MARK: Execution and Cancellation
     
-    override final func start() {
+    override public final func start() {
         assert(state == .Ready, "This operation must be performed on an operation queue.")
 
         state = .Executing
@@ -216,11 +216,11 @@ class Operation: NSOperation {
     }
     
     private var _internalErrors = [NSError]()
-    override func cancel() {
+    override public func cancel() {
         cancelWithError()
     }
     
-    func cancelWithError(error: NSError? = nil) {
+    public func cancelWithError(error: NSError? = nil) {
         if let error = error {
             _internalErrors.append(error)
         }
@@ -228,7 +228,7 @@ class Operation: NSOperation {
         state = .Cancelled
     }
     
-    final func produceOperation(operation: NSOperation) {
+    public final func produceOperation(operation: NSOperation) {
         for observer in observers {
             observer.operation(self, didProduceOperation: operation)
         }
@@ -244,7 +244,7 @@ class Operation: NSOperation {
         for how an error from an `NSURLSession` is passed along via the 
         `finishWithError()` method.
     */
-    final func finishWithError(error: NSError?) {
+    public final func finishWithError(error: NSError?) {
         if let error = error {
             finish([error])
         }
@@ -258,7 +258,7 @@ class Operation: NSOperation {
         operation has finished.
     */
     private var hasFinishedAlready = false
-    final func finish(errors: [NSError] = []) {
+    public final func finish(errors: [NSError] = []) {
         if !hasFinishedAlready {
             hasFinishedAlready = true
             state = .Finishing
@@ -280,11 +280,11 @@ class Operation: NSOperation {
         this method to potentially inform the user about an error when trying to
         bring up the Core Data stack.
     */
-    func finished(errors: [NSError]) {
+    public func finished(errors: [NSError]) {
         // No op.
     }
     
-    override func waitUntilFinished() {
+    override public func waitUntilFinished() {
         /*
             Waiting on operations is almost NEVER the right thing to do. It is 
             usually superior to use proper locking constructs, such as `dispatch_semaphore_t`

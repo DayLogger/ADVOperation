@@ -9,32 +9,32 @@ This file shows an example of implementing the OperationCondition protocol.
 import CoreLocation
 
 /// A condition for verifying access to the user's location.
-struct LocationCondition: OperationCondition {
+public struct LocationCondition: OperationCondition {
     /**
         Declare a new enum instead of using `CLAuthorizationStatus`, because that
         enum has more case values than are necessary for our purposes.
     */
-    enum Usage {
+    public enum Usage {
         case WhenInUse
         case Always
     }
     
-    static let name = "Location"
-    static let locationServicesEnabledKey = "CLLocationServicesEnabled"
-    static let authorizationStatusKey = "CLAuthorizationStatus"
-    static let isMutuallyExclusive = false
+    public static let name = "Location"
+    public static let locationServicesEnabledKey = "CLLocationServicesEnabled"
+    public static let authorizationStatusKey = "CLAuthorizationStatus"
+    public static let isMutuallyExclusive = false
     
     let usage: Usage
     
-    init(usage: Usage) {
+    public init(usage: Usage) {
         self.usage = usage
     }
     
-    func dependencyForOperation(operation: Operation) -> NSOperation? {
+    public func dependencyForOperation(operation: Operation) -> NSOperation? {
         return LocationPermissionOperation(usage: usage)
     }
     
-    func evaluateForOperation(operation: Operation, completion: OperationConditionResult -> Void) {
+    public func evaluateForOperation(operation: Operation, completion: OperationConditionResult -> Void) {
         let enabled = CLLocationManager.locationServicesEnabled()
         let actual = CLLocationManager.authorizationStatus()
         

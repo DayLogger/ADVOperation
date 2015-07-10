@@ -14,9 +14,9 @@ import UIKit
     A condition for verifying that we can present alerts to the user via 
     `UILocalNotification` and/or remote notifications.
 */
-struct UserNotificationCondition: OperationCondition {
+public struct UserNotificationCondition: OperationCondition {
     
-    enum Behavior {
+    public enum Behavior {
         /// Merge the new `UIUserNotificationSettings` with the `currentUserNotificationSettings`.
         case Merge
 
@@ -24,10 +24,10 @@ struct UserNotificationCondition: OperationCondition {
         case Replace
     }
     
-    static let name = "UserNotification"
-    static let currentSettings = "CurrentUserNotificationSettings"
-    static let desiredSettings = "DesiredUserNotificationSettigns"
-    static let isMutuallyExclusive = false
+    public static let name = "UserNotification"
+    public static let currentSettings = "CurrentUserNotificationSettings"
+    public static let desiredSettings = "DesiredUserNotificationSettigns"
+    public static let isMutuallyExclusive = false
     
     let settings: UIUserNotificationSettings
     let application: UIApplication
@@ -48,17 +48,17 @@ struct UserNotificationCondition: OperationCondition {
             `application`. You may also specify `.Replace`, which means the `settings` 
             will overwrite the exisiting settings.
     */
-    init(settings: UIUserNotificationSettings, application: UIApplication, behavior: Behavior = .Merge) {
+    public init(settings: UIUserNotificationSettings, application: UIApplication, behavior: Behavior = .Merge) {
         self.settings = settings
         self.application = application
         self.behavior = behavior
     }
     
-    func dependencyForOperation(operation: Operation) -> NSOperation? {
+    public func dependencyForOperation(operation: Operation) -> NSOperation? {
         return UserNotificationPermissionOperation(settings: settings, application: application, behavior: behavior)
     }
     
-    func evaluateForOperation(operation: Operation, completion: OperationConditionResult -> Void) {
+    public func evaluateForOperation(operation: Operation, completion: OperationConditionResult -> Void) {
         let result: OperationConditionResult
         
         let current = application.currentUserNotificationSettings()

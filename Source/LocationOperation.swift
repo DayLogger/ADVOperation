@@ -15,7 +15,7 @@ import CoreLocation
     prompt for `WhenInUse` location authorization, if the app does not already 
     have it.
 */
-class LocationOperation: Operation, CLLocationManagerDelegate {
+public class LocationOperation: Operation, CLLocationManagerDelegate {
     // MARK: Properties
     
     private let accuracy: CLLocationAccuracy
@@ -24,7 +24,7 @@ class LocationOperation: Operation, CLLocationManagerDelegate {
     
     // MARK: Initialization
  
-    init(accuracy: CLLocationAccuracy, locationHandler: CLLocation -> Void) {
+    public init(accuracy: CLLocationAccuracy, locationHandler: CLLocation -> Void) {
         self.accuracy = accuracy
         self.handler = locationHandler
         super.init()
@@ -32,7 +32,7 @@ class LocationOperation: Operation, CLLocationManagerDelegate {
         addCondition(MutuallyExclusive<CLLocationManager>())
     }
     
-    override func execute() {
+    override public func execute() {
         dispatch_async(dispatch_get_main_queue()) {
             /*
                 `CLLocationManager` needs to be created on a thread with an active
@@ -47,7 +47,7 @@ class LocationOperation: Operation, CLLocationManagerDelegate {
         }
     }
     
-    override func cancel() {
+    override public func cancel() {
         dispatch_async(dispatch_get_main_queue()) {
             self.stopLocationUpdates()
             super.cancel()
@@ -60,7 +60,7 @@ class LocationOperation: Operation, CLLocationManagerDelegate {
     }
     
     // MARK: CLLocationManagerDelegate
-    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+    public func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let location = locations.last where location.horizontalAccuracy <= accuracy {
             stopLocationUpdates()
             handler(location)
@@ -68,7 +68,7 @@ class LocationOperation: Operation, CLLocationManagerDelegate {
         }
     }
 
-    func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
+    public func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
         stopLocationUpdates()
         finishWithError(error)
     }

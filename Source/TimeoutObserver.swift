@@ -12,7 +12,7 @@ import Foundation
     `TimeoutObserver` is a way to make an `Operation` automatically time out and 
     cancel after a specified time interval.
 */
-struct TimeoutObserver: OperationObserver {
+public struct TimeoutObserver: OperationObserver {
     // MARK: Properties
 
     static let timeoutKey = "Timeout"
@@ -21,13 +21,13 @@ struct TimeoutObserver: OperationObserver {
     
     // MARK: Initialization
     
-    init(timeout: NSTimeInterval) {
+    public init(timeout: NSTimeInterval) {
         self.timeout = timeout
     }
     
     // MARK: OperationObserver
     
-    func operationDidStart(operation: Operation) {
+    public func operationDidStart(operation: Operation) {
         // When the operation starts, queue up a block to cause it to time out.
         let when = dispatch_time(DISPATCH_TIME_NOW, Int64(timeout * Double(NSEC_PER_SEC)))
 
@@ -46,11 +46,11 @@ struct TimeoutObserver: OperationObserver {
         }
     }
 
-    func operation(operation: Operation, didProduceOperation newOperation: NSOperation) {
+    public func operation(operation: Operation, didProduceOperation newOperation: NSOperation) {
         // No op.
     }
 
-    func operationDidFinish(operation: Operation, errors: [NSError]) {
+    public func operationDidFinish(operation: Operation, errors: [NSError]) {
         // No op.
     }
 }

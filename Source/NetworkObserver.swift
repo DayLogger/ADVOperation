@@ -12,21 +12,21 @@ import UIKit
     An `OperationObserver` that will cause the network activity indicator to appear 
     as long as the `Operation` to which it is attached is executing.
 */
-struct NetworkObserver: OperationObserver {
+public struct NetworkObserver: OperationObserver {
     // MARK: Initilization
 
     init() { }
     
-    func operationDidStart(operation: Operation) {
+    public func operationDidStart(operation: Operation) {
         dispatch_async(dispatch_get_main_queue()) {
             // increment the network indicator's "retain count"
             NetworkIndicatorController.sharedIndicatorController.networkActivityDidStart()
         }
     }
     
-    func operation(operation: Operation, didProduceOperation newOperation: NSOperation) { }
+    public func operation(operation: Operation, didProduceOperation newOperation: NSOperation) { }
     
-    func operationDidFinish(operation: Operation, errors: [NSError]) {
+    public func operationDidFinish(operation: Operation, errors: [NSError]) {
         dispatch_async(dispatch_get_main_queue()) {
             // Decrement the network indicator's "reference count".
             NetworkIndicatorController.sharedIndicatorController.networkActivityDidEnd()

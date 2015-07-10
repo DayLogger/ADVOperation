@@ -14,7 +14,7 @@ let OperationConditionKey = "OperationCondition"
     A protocol for defining conditions that must be satisfied in order for an
     operation to begin execution.
 */
-protocol OperationCondition {
+public protocol OperationCondition {
     /** 
         The name of the condition. This is used in userInfo dictionaries of `.ConditionFailed` 
         errors as the value of the `OperationConditionKey` key.
@@ -49,7 +49,7 @@ protocol OperationCondition {
     An enum to indicate whether an `OperationCondition` was satisfied, or if it 
     failed with an error.
 */
-enum OperationConditionResult {
+public enum OperationConditionResult {
     case Satisfied
     case Failed(NSError)
     
@@ -64,7 +64,7 @@ enum OperationConditionResult {
 
 // MARK: Evaluate Conditions
 
-struct OperationConditionEvaluator {
+public struct OperationConditionEvaluator {
     static func evaluate(conditions: [OperationCondition], operation: Operation, completion: [NSError] -> Void) {
         // Check conditions.
         let conditionGroup = dispatch_group_create()
