@@ -9,91 +9,58 @@
 import Foundation
 import CoreLocation
 
-private var CLGeocoderOperationKVOContext = 0
+
+public enum CLGeocoderOperationType {
+    case ReverseGeocodeLocation(CLLocation)
+    case ForwardGeocodeAddressDictionary([NSObject:AnyObject])
+    case ForwardGeocodeAddressString(String)
+    case ForwardGeocodeAddressStringInRegion(String, CLRegion?)
+}
+
 
 /**
 `CLGeocoderOperation` is an `Operation` that lifts a `CLGeocoder`
 into an operation.
-
-Note that this operation does not receive any of the callbacks
-of `CLGeocoder`, but instead uses Key-Value-Observing to know when the
-geocoder has been completed.
 */
 public class CLGeocoderOperation: Operation {
     let geocoder: CLGeocoder
     let completionHandler: CLGeocodeCompletionHandler
-    let location: CLLocation?
-    let addressDictionary: [NSObject:AnyObject]?
-    let addressString: String?
-    let addressRegion: CLRegion?
-    let useAddressRegion: Bool
+    let geocodeType: CLGeocoderOperationType
 
-    public init(location: CLLocation, completionHandler: CLGeocodeCompletionHandler) {
+
+    public init(geocodeType: CLGeocoderOperationType, completionHandler: CLGeocodeCompletionHandler) {
         self.geocoder = CLGeocoder()
+        self.geocodeType = geocodeType
         self.completionHandler = completionHandler
-        self.location = location
-        self.addressDictionary = nil
-        self.addressString = nil
-        self.addressRegion = nil
-        self.useAddressRegion = false
         super.init()
     }
 
-    public init(addressDictionary: [NSObject:AnyObject], completionHandler: CLGeocodeCompletionHandler) {
-        self.geocoder = CLGeocoder()
-        self.completionHandler = completionHandler
-        self.location = nil
-        self.addressDictionary = addressDictionary
-        self.addressString = nil
-        self.addressRegion = nil
-        self.useAddressRegion = false
-        super.init()
+    convenience public init(location: CLLocation, completionHandler: CLGeocodeCompletionHandler) {
+        self.init(geocodeType: .ReverseGeocodeLocation(location), completionHandler: completionHandler)
     }
 
-    public init(addressString: String, completionHandler: CLGeocodeCompletionHandler) {
-        self.geocoder = CLGeocoder()
-        self.completionHandler = completionHandler
-        self.location = nil
-        self.addressDictionary = nil
-        self.addressString = addressString
-        self.addressRegion = nil
-        self.useAddressRegion = false
-        super.init()
+    convenience public init(addressDictionary: [NSObject:AnyObject], completionHandler: CLGeocodeCompletionHandler) {
+        self.init(geocodeType: .ForwardGeocodeAddressDictionary(addressDictionary), completionHandler: completionHandler)
     }
 
-    public init(addressString: String, inRegion addressRegion: CLRegion?, completionHandler: CLGeocodeCompletionHandler) {
-        self.geocoder = CLGeocoder()
-        self.completionHandler = completionHandler
-        self.location = nil
-        self.addressDictionary = nil
-        self.addressString = addressString
-        self.addressRegion = addressRegion
-        self.useAddressRegion = true
-        super.init()
+    convenience public init(addressString: String, completionHandler: CLGeocodeCompletionHandler) {
+        self.init(geocodeType: .ForwardGeocodeAddressString(addressString), completionHandler: completionHandler)
+    }
+
+    convenience public init(addressString: String, inRegion addressRegion: CLRegion?, completionHandler: CLGeocodeCompletionHandler) {
+        self.init(geocodeType: .ForwardGeocodeAddressStringInRegion(addressString, addressRegion), completionHandler: completionHandler)
     }
 
     override func execute() {
-        geocoder.addObserver(self, forKeyPath: "geocoding", options: [], context: &CLGeocoderOperationKVOContext)
-
-        if let location = location {
+        switch geocodeType {
+        case .ReverseGeocodeLocation(let location):
             geocoder.reverseGeocodeLocation(location, completionHandler: completionHandler)
-        } else if let addressDictionary = addressDictionary {
+        case .ForwardGeocodeAddressDictionary(let addressDictionary):
             geocoder.geocodeAddressDictionary(addressDictionary, completionHandler: completionHandler)
-        } else if let addressString = addressString {
-            if useAddressRegion {
-                geocoder.geocodeAddressString(addressString, inRegion: addressRegion, completionHandler: completionHandler)
-            } else {
-                geocoder.geocodeAddressString(addressString, completionHandler: completionHandler)
-            }
-        }
-    }
-
-    override public func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>) {
-        guard context == &CLGeocoderOperationKVOContext else { return }
-
-        if object === geocoder && keyPath == "geocoding" && geocoder.geocoding == false {
-            geocoder.removeObserver(self, forKeyPath: "geocoding")
-            finish()
+        case .ForwardGeocodeAddressString(let addressString):
+            geocoder.geocodeAddressString(addressString, completionHandler: completionHandler)
+        case .ForwardGeocodeAddressStringInRegion(let addressString, let addressRegion):
+            geocoder.geocodeAddressString(addressString, inRegion: addressRegion, completionHandler: completionHandler)
         }
     }
 
