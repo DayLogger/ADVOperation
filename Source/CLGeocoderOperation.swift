@@ -52,15 +52,23 @@ public class CLGeocoderOperation: Operation {
     }
 
     override func execute() {
+        let finishHandler: CLGeocodeCompletionHandler = { (locations, error) in
+            let finishOperation = NSBlockOperation() {
+                self.completionHandler(locations, error)
+                self.finish()
+            }
+            self.produceOperation(finishOperation)
+        }
+
         switch geocodeType {
         case .ReverseGeocodeLocation(let location):
-            geocoder.reverseGeocodeLocation(location, completionHandler: completionHandler)
+            geocoder.reverseGeocodeLocation(location, completionHandler: finishHandler)
         case .ForwardGeocodeAddressDictionary(let addressDictionary):
-            geocoder.geocodeAddressDictionary(addressDictionary, completionHandler: completionHandler)
+            geocoder.geocodeAddressDictionary(addressDictionary, completionHandler: finishHandler)
         case .ForwardGeocodeAddressString(let addressString):
-            geocoder.geocodeAddressString(addressString, completionHandler: completionHandler)
+            geocoder.geocodeAddressString(addressString, completionHandler: finishHandler)
         case .ForwardGeocodeAddressStringInRegion(let addressString, let addressRegion):
-            geocoder.geocodeAddressString(addressString, inRegion: addressRegion, completionHandler: completionHandler)
+            geocoder.geocodeAddressString(addressString, inRegion: addressRegion, completionHandler: finishHandler)
         }
     }
 
