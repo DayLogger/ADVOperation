@@ -12,6 +12,7 @@ import CoreLocation
 
 public enum CLGeocoderOperationType {
     case ReverseGeocodeLocation(CLLocation)
+    case ReverseGeocodeLocationProvider(LocationProvider)
     case ForwardGeocodeAddressDictionary([NSObject:AnyObject])
     case ForwardGeocodeAddressString(String)
     case ForwardGeocodeAddressStringInRegion(String, CLRegion?)
@@ -23,9 +24,12 @@ public enum CLGeocoderOperationType {
 into an operation.
 */
 public class CLGeocoderOperation: Operation {
-    let geocoder: CLGeocoder
-    let completionHandler: CLGeocodeCompletionHandler
-    let geocodeType: CLGeocoderOperationType
+
+    public var placemark: CLPlacemark?
+
+    private let geocoder: CLGeocoder
+    private let completionHandler: CLGeocodeCompletionHandler
+    private let geocodeType: CLGeocoderOperationType
 
 
     public init(geocodeType: CLGeocoderOperationType, completionHandler: CLGeocodeCompletionHandler) {
@@ -37,6 +41,10 @@ public class CLGeocoderOperation: Operation {
 
     convenience public init(location: CLLocation, completionHandler: CLGeocodeCompletionHandler) {
         self.init(geocodeType: .ReverseGeocodeLocation(location), completionHandler: completionHandler)
+    }
+
+    convenience public init(locationProvider: LocationProvider, completionHandler: CLGeocodeCompletionHandler) {
+        self.init(geocodeType: .ReverseGeocodeLocationProvider(locationProvider), completionHandler: completionHandler)
     }
 
     convenience public init(addressDictionary: [NSObject:AnyObject], completionHandler: CLGeocodeCompletionHandler) {
@@ -54,6 +62,7 @@ public class CLGeocoderOperation: Operation {
     override func execute() {
         let finishHandler: CLGeocodeCompletionHandler = { (locations, error) in
             let finishOperation = NSBlockOperation() {
+                self.placemark = locations?.first
                 self.completionHandler(locations, error)
                 self.finish()
             }
@@ -63,6 +72,16 @@ public class CLGeocoderOperation: Operation {
         switch geocodeType {
         case .ReverseGeocodeLocation(let location):
             geocoder.reverseGeocodeLocation(location, completionHandler: finishHandler)
+        case .ReverseGeocodeLocationProvider(let locationProvider):
+            if let location = locationProvider.location {
+                geocoder.reverseGeocodeLocation(location, completionHandler: finishHandler)
+            } else {
+                let error = NSError(code: .ExecutionFailed, userInfo: [
+                    "LocationProvider": "No location provided."
+                    ])
+
+                self.cancelWithError(error)
+            }
         case .ForwardGeocodeAddressDictionary(let addressDictionary):
             geocoder.geocodeAddressDictionary(addressDictionary, completionHandler: finishHandler)
         case .ForwardGeocodeAddressString(let addressString):

@@ -9,14 +9,20 @@ Shows how to retrieve the user's location with an operation.
 import Foundation
 import CoreLocation
 
+public protocol LocationProvider {
+    var location: CLLocation? { get }
+}
+
 /**
     `LocationOperation` is an `Operation` subclass to do a "one-shot" request to
     get the user's current location, with a desired accuracy. This operation will
     prompt for `WhenInUse` location authorization, if the app does not already 
     have it.
 */
-public class LocationOperation: Operation, CLLocationManagerDelegate {
+public class LocationOperation: Operation, CLLocationManagerDelegate, LocationProvider {
     // MARK: Properties
+
+    public var location: CLLocation?
     
     private let accuracy: CLLocationAccuracy
     private var manager: CLLocationManager?
@@ -63,6 +69,7 @@ public class LocationOperation: Operation, CLLocationManagerDelegate {
     public func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let location = locations.last where location.horizontalAccuracy <= accuracy {
             stopLocationUpdates()
+            self.location = location
             handler(location)
             finish()
         }
