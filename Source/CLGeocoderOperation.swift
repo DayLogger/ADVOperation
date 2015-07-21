@@ -59,7 +59,7 @@ public class CLGeocoderOperation: Operation {
         self.init(geocodeType: .ForwardGeocodeAddressStringInRegion(addressString, addressRegion), completionHandler: completionHandler)
     }
 
-    override func execute() {
+    override public func execute() {
         let finishHandler: CLGeocodeCompletionHandler = { (locations, error) in
             let finishOperation = NSBlockOperation() {
                 self.placemark = locations?.first
