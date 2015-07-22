@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		AA8215681B2F23FA00A04622 /* ADVOperation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA82155D1B2F23FA00A04622 /* ADVOperation.framework */; };
 		AA9A92321B301FE8003CF5D2 /* URLSessionTaskOperationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9A92311B301FE8003CF5D2 /* URLSessionTaskOperationTests.swift */; };
+		B052D35A1B6005DA006249CB /* DownloadURLToFileOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B052D3591B6005DA006249CB /* DownloadURLToFileOperation.swift */; };
 		B0709AFD1B52FC5100C98A77 /* CLGeocoderOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0709AFC1B52FC5100C98A77 /* CLGeocoderOperation.swift */; };
 		B0F55EED1B4ED17400F020AE /* ExclusivityController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8215951B2F422C00A04622 /* ExclusivityController.swift */; };
 		B0F55EEE1B4ED17400F020AE /* OperationQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA82158E1B2F422C00A04622 /* OperationQueue.swift */; };
@@ -94,6 +95,7 @@
 		AA8215A81B2F422C00A04622 /* URLSessionTaskOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLSessionTaskOperation.swift; sourceTree = "<group>"; };
 		AA8215A91B2F422C00A04622 /* UserNotificationCondition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserNotificationCondition.swift; sourceTree = "<group>"; };
 		AA9A92311B301FE8003CF5D2 /* URLSessionTaskOperationTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLSessionTaskOperationTests.swift; sourceTree = "<group>"; };
+		B052D3591B6005DA006249CB /* DownloadURLToFileOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DownloadURLToFileOperation.swift; sourceTree = "<group>"; };
 		B056D89A1B4E2F68008DBDB8 /* AlertOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertOperation.swift; sourceTree = "<group>"; };
 		B056D89B1B4E2F68008DBDB8 /* MoreInformationOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoreInformationOperation.swift; sourceTree = "<group>"; };
 		B056D89C1B4E2F68008DBDB8 /* NetworkObserver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkObserver.swift; sourceTree = "<group>"; };
@@ -198,6 +200,7 @@
 				AA8215981B2F422C00A04622 /* LocationOperation.swift */,
 				B0709AFC1B52FC5100C98A77 /* CLGeocoderOperation.swift */,
 				AA8215931B2F422C00A04622 /* DelayOperation.swift */,
+				B052D3591B6005DA006249CB /* DownloadURLToFileOperation.swift */,
 			);
 			name = Operations;
 			sourceTree = "<group>";
@@ -385,6 +388,7 @@
 				B0F55EFF1B4ED18D00F020AE /* HealthCondition.swift in Sources */,
 				B0F55EF41B4ED17F00F020AE /* Operation.swift in Sources */,
 				B0F55EFE1B4ED18D00F020AE /* CloudCondition.swift in Sources */,
+				B052D35A1B6005DA006249CB /* DownloadURLToFileOperation.swift in Sources */,
 				B0F55EF11B4ED17900F020AE /* MoreInformationOperation.swift in Sources */,
 				B0F55EFA1B4ED18600F020AE /* OperationObserver.swift in Sources */,
 				B0F55EF21B4ED17900F020AE /* NetworkObserver.swift in Sources */,
