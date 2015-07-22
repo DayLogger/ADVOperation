@@ -25,17 +25,15 @@ public class DownloadURLToFileOperation: GroupOperation {
             self.downloadFinished(url, response: response as? NSHTTPURLResponse, error: error)
         }
 
-        if let task = task {
-            let taskOperation = URLSessionTaskOperation(task: task)
+        let taskOperation = URLSessionTaskOperation(task: task)
 
-            let reachabilityCondition = ReachabilityCondition(host: url)
-            taskOperation.addCondition(reachabilityCondition)
+        let reachabilityCondition = ReachabilityCondition(host: url)
+        taskOperation.addCondition(reachabilityCondition)
 
-            let networkObserver = NetworkObserver()
-            taskOperation.addObserver(networkObserver)
+        let networkObserver = NetworkObserver()
+        taskOperation.addObserver(networkObserver)
 
-            addOperation(taskOperation)
-        }
+        addOperation(taskOperation)
     }
 
     func downloadFinished(url: NSURL?, response: NSHTTPURLResponse?, error: NSError?) {
