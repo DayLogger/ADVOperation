@@ -12,7 +12,8 @@ import UIKit
     `BackgroundObserver` is an `OperationObserver` that will automatically begin
     and end a background task if the application transitions to the background.
     This would be useful if you had a vital `Operation` whose execution *must* complete,
-    regardless of the activation state of the app. Some kinds network connections may fall in to this category, for example.
+    regardless of the activation state of the app. Some kinds network connections may
+    fall in to this category, for example.
 */
 public class BackgroundObserver: NSObject, OperationObserver {
     // MARK: Properties
